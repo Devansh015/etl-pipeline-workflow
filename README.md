@@ -20,6 +20,5 @@ This project implements a robust ETL (Extract, Transform, Load) pipeline designe
 - Sqlite3
 - requests
 - dotenv
-- logging
 
 ## Architecture
