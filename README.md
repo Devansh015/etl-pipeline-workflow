@@ -15,10 +15,9 @@ This project implements a robust ETL (Extract, Transform, Load) pipeline designe
 
 ## Tech Stack
 
-- Python 3.x
+- python 3.x
 - pandas
-- SQLAlchemy
-- psycopg2 / sqlite3
+- Sqlite3
 - requests
 - dotenv
 - logging
