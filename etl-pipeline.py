@@ -1,4 +1,5 @@
 import pandas as pd 
+import sqlite3
 
 def extract_data(file_path):
 
@@ -17,3 +18,25 @@ def transform_data(data):
 
 transform_data = transform_data(data)
 print(transform_data.head())
+
+def load_data(data, database_path):
+    conn = sqlite3.connect(database_path)
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            age INTEGER
+        )
+    ''')        
+
+    for _, row in data.iterrows():
+        cursor.execute('''
+            INSERT INTO users (name, age) VALUES (?, ?)
+        ''', (row['1'], row['0']))
+
+        conn.commit()   
+        conn.close()
+
+load_data(transform_data, 'data/destination.db')
