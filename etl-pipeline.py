@@ -40,3 +40,16 @@ def load_data(data, database_path):
         conn.close()
 
 load_data(transform_data, 'data/destination.db')
+
+def run_etl_pipeline():
+    # Extract
+    data = extract_data('data/source_data.csv')
+
+    # Transform
+    transformed_data = transform_data(data)
+
+    #Load
+    load_data(transformed_data, 'data/destination.db')
+
+# Run the ETL pipeline
+run_etl_pipeline()
