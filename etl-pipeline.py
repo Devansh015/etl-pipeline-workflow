@@ -42,14 +42,20 @@ def load_data(data, database_path):
 load_data(transform_data, 'data/destination.db')
 
 def run_etl_pipeline():
-    # Extract
-    data = extract_data('data/source_data.csv')
+    try:
 
-    # Transform
-    transformed_data = transform_data(data)
+        # Extract
+        data = extract_data('data/source_data.csv')
 
-    #Load
-    load_data(transformed_data, 'data/destination.db')
+        # Transform
+        transformed_data = transform_data(data)
+
+        #Load
+        load_data(transformed_data, 'data/destination.db')
+
+    except Exception as e:
+        print(f"Error occurred: {e}")
+
 
 # Run the ETL pipeline
 run_etl_pipeline()
