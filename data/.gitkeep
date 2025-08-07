@@ -1,0 +1,11 @@
+# Data Directory
+
+This directory contains the databases and data files for the ETL pipeline.
+
+## Contents:
+- `weather_data.db` - Main weather database (created automatically)
+- `demo_weather.db` - Demo database for testing
+- `destination.db` - Legacy CSV data database
+
+## Note:
+Database files are automatically created when the pipeline runs.
